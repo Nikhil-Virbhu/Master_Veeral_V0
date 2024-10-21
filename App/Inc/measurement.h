@@ -1,0 +1,52 @@
+/* List of Signals and respective peripherals
+	* ADC1_CHANNEL1 PA0 R1 VAC_U
+	* ADC1_CHANNEL2 PA1 R2 VAC_V
+	* ADC1_CHANNEL3 PA2 R3 VAC_W
+	* ADC1_CHANNEL4 PA3 R4 VOUT
+	* ADC2_CHANNEL3 PA6 R1 VAC_E
+	* ADC2_CHANNEL4 PA7 R2 IOUT
+	* ADC3_CHANNEL7 PD10 R3 IAC_W
+	* ADC3_CHANNEL8 PD11 R2 IAC_V
+	* ADC3_CHANNEL9 PD12 R1 IAC_U
+	* ADC4_CHANNEL1 PE14 R1 V1.65
+	* ADC5_CHANNEL2 PA9 R1 I-REF
+	* ADC5_CHANNEL10 PD13 R2 Tmpr2
+	* ADC5_CHANNEL11 PD14 R3 Tmpr1
+*/
+
+#include "main.h"
+
+#define ADC_SAMPLE_SIZE 32
+#define ADC1_CHN 4
+#define ADC1_BUFFER_SIZE ADC1_CHN*ADC_SAMPLE_SIZE
+#define ADC2_CHN 2
+#define ADC2_BUFFER_SIZE ADC2_CHN*ADC_SAMPLE_SIZE
+#define ADC3_CHN 3
+#define ADC3_BUFFER_SIZE ADC3_CHN*ADC_SAMPLE_SIZE
+#define ADC4_CHN 1
+#define ADC4_BUFFER_SIZE ADC4_CHN*ADC_SAMPLE_SIZE
+#define ADC5_CHN 3
+#define ADC5_BUFFER_SIZE ADC5_CHN*ADC_SAMPLE_SIZE
+#define TOTAL_ADC_PARAMETERS 13
+
+typedef enum {eVAC_R,eVAC_Y,eVAC_B,eV_OUT,eVAC_E,eI_OUT,eIAC_R,eIAC_Y,eIAC_B,ev1_65,eIref,eTmpr2,eTmpr1} Adc_Buffer_positions;
+
+#ifdef _MEASUREMENT_
+	uint16_t Adc1_Buffer[ADC1_BUFFER_SIZE];
+	uint16_t Adc2_Buffer[ADC2_BUFFER_SIZE];
+	uint16_t Adc3_Buffer[ADC3_BUFFER_SIZE];
+	uint16_t Adc4_Buffer[ADC4_BUFFER_SIZE];
+	uint16_t Adc5_Buffer[ADC5_BUFFER_SIZE];
+	uint32_t Adc_Sum_Buffer[TOTAL_ADC_PARAMETERS];
+	uint32_t Adc_Avg_Buffer[TOTAL_ADC_PARAMETERS];
+
+#else
+	extern uint16_t Adc1_Buffer[ADC1_BUFFER_SIZE];
+	extern uint16_t Adc2_Buffer[ADC2_BUFFER_SIZE];
+	extern uint16_t Adc3_Buffer[ADC3_BUFFER_SIZE];
+	extern uint16_t Adc4_Buffer[ADC4_BUFFER_SIZE];
+	extern uint16_t Adc5_Buffer[ADC5_BUFFER_SIZE];
+	extern uint32_t Adc_Sum_Buffer[TOTAL_ADC_PARAMETERS];
+	extern uint32_t Adc_Avg_Buffer[TOTAL_ADC_PARAMETERS];
+
+#endif
