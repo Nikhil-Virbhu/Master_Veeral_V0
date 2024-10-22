@@ -276,8 +276,8 @@ void TIM7_Execution(void){
 								V_cmd = (R_sine_wave[test_mode_count]* mod_index+1) * (timer_period/2) ;
 								//HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, V_cmd*0.1);
 
-								HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_A].CMP3xR = V_cmd;
-								HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_B].CMP3xR = V_cmd;
+								HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_A].CMP3xR = Vr_cmd;
+								HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_B].CMP3xR = Vr_cmd;
 								//HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_A].CMP3xR = (uint16_t)(((float) V_cmd * HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_A].PERxR  + (float) HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_A].PERxR) * 0.5f) ;
 										//HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_B].CMP3xR = (uint16_t)(((float)(- V_cmd) * HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_B].PERxR + (float) HRTIM1->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_B].PERxR) * 0.5f);
 

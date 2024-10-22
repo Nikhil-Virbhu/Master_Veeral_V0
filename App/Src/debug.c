@@ -165,8 +165,8 @@ uint32_t DAC_update(uint8_t signal)
 /*Function description: DAC_Out to see the Analog output of DAC (waveform) on DSO. */
 void DAC_Out(void)
 {
-	dac1=16;
-	dac2=16;
+	dac1=8;
+	dac2=8;
 
 	dac1_data = DAC_update(dac1);
 	dac2_data = DAC_update(dac2);
